@@ -1,0 +1,38 @@
+{
+  "feedly": {
+    "token": "feedly_access_token",
+    "baseurl": "https://cloud.feedly.com/v3",
+    "streams": {
+      "twitter": "twitter_feed_id"
+    }
+  },
+  "clicky": {
+    "urls": {
+      "api_url": "http://api.clicky.com/api/stats/4",
+      "login_url": "https://clicky.com/user/login",
+      "content_url": "https://clicky.com/stats/content"
+    },
+    "sitekey": "sitekey",
+    "siteid": "siteid",
+    "username": "clicky_username",
+    "pw": "clicky_password"
+  },
+  "buffer": {
+    "baseurl": "https://api.bufferapp.com/1/",
+    "access_token": "buffer_accesstoken",
+    "profiles": {
+      "twitter": "twitter_stream_id",
+      "linkedin": "linkedin_stream_id"
+    }
+  },
+  "posting_hours": [
+      20,
+      21,
+      22,
+      23
+  ],
+  "articles": {
+      "feedly": 3,
+      "clicky": 1
+  }
+}
