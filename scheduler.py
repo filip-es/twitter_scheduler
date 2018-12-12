@@ -48,7 +48,7 @@ def get_feed(time_delta=1, count=100, **kwargs) -> list:
     For **kwargs see API Docs: https://developer.feedly.com/v3/streams/
 
     Parameters
-    ---------
+    ----------
     time_delta : int
         number of days in the past to return articles from. E.g. 1 means return articles
         from last 24hrs (default is 1)
@@ -69,7 +69,10 @@ def get_feed(time_delta=1, count=100, **kwargs) -> list:
     url += f"/streams/{quote_plus(stream)}/contents"
     headers = {"Authorization": f"OAuth {token}"}
 
-    response = make_request(url, 'get', headers=headers, params=kwargs)
+    params = {'count': count}
+    params.update(kwargs)
+
+    response = make_request(url, 'get', headers=headers, params=params)
     
     # error handling
     if not response.get('items'):
@@ -198,7 +201,7 @@ def schedule_buffer(status_text, profile, scheduled=0, **kwargs) -> json:
     (So far only twitter is implemented)
 
     Paramenters
-    ----------
+    -----------
     status_text : str
         content of post (use text + url)
     profile : str
@@ -306,7 +309,7 @@ def check_posted(source, count, posted) -> list:
     """Check if URL was already posted. If yes, use the next in line.
 
     Parametes
-    --------
+    ---------
     source : list of `Article` or `CArticle` objects
         returned from appropriate get functions (get_feed() and get_clicky())
     count : int
